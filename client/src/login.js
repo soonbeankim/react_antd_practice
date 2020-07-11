@@ -6,11 +6,20 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import mainPage from './App';
 
 class Login extends Component {
+    state = {
+        id: '',
+        password: ''
+    }
 
+    handleChange = (e) => {
+        this.setState({
+            id: e.target.value
+        })
+        // console.log(id)
+    }
     render() {
-
         function loginPressed() {
-            console.log('login pressed')
+            // console.log(this.props.id )
         }
 
         return (
@@ -19,7 +28,6 @@ class Login extends Component {
             //   className="login-form"
             //   initialValues={{ remember: true }}
             //   onFinish={onFinish}
-
             >
                 <Form.Item
                     name="username"
@@ -27,6 +35,8 @@ class Login extends Component {
                     
                 >
                     <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" 
+                    value={this.state.id}
+                    onChange={this.handleChange}
                     />
                 </Form.Item>
                 <Form.Item
